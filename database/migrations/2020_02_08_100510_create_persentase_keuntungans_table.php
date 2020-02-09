@@ -15,7 +15,7 @@ class CreatePersentaseKeuntungansTable extends Migration
     {
         Schema::create('persentase_keuntungans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('presentase_keuntungan');
+            $table->bigInteger('persentase_keuntungan');
             $table->timestamps();
         });
     }

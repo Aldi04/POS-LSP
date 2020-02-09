@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 use App\Cart;
@@ -18,7 +19,7 @@ class CartController extends Controller
         $d['produks'] = Produk::orderBy("nama", "ASC")->get();
         $d['carts'] = Cart::where('user_id', \Auth::user()->id)->where('status', 1)->orderBy("id", "DESC")->get();
         $d['totalCarts'] = Cart::where('user_id', \Auth::user()->id)->where('status', 1)->sum('sub_total');
-        return view ("transaksi.index", $d);
+        return view("transaksi.index", $d);
     }
 
     /**
@@ -44,20 +45,20 @@ class CartController extends Controller
         $d = new Cart;
         $d->produk_id = $request->input("produk_id");
 
-        if($h->stok < $request->input("jumlah")){
-            return redirect()->route("transaksi.index")->with("alertBlock", "Stok hanya tersisa".$h->stok);
+        if ($h->stok < $request->input("jumlah")) {
+            return redirect()->route("transaksi.index")->with("alertBlock", "Stok hanya tersisa" . $h->stok);
         }
 
-        if($request->input("jumlah") < 1){
+        if ($request->input("jumlah") < 1) {
             return redirect()->route("transaksi.index")->with("alertBlock", "Masukan jumlah barang yang ingin Anda beli");
         }
         $d->jumlah = $request->input("jumlah");
         $d->user_id = \Auth::user()->id;
 
-        $d->status = $request->input("jumlah") * $h->harga_jual;
+        $d->sub_total = $request->input("jumlah") * $h->harga_jual;
         $d->status = 1;
-        $d->kode_unik = rand(1111111111,9999999999);
-        
+        $d->kode_unik = rand(1111111111, 9999999999);
+
         $d->save();
 
         return redirect()->route("transaksi.index")->with("alertStore", $request->input("produk_id"));
@@ -103,7 +104,7 @@ class CartController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
         $d = Cart::find($id);
         $produk_id = $d->produk_id;

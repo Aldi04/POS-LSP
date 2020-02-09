@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Dashboard</h4>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item active">Welcome to Agroxa Dashboard</li>
+                            <li class="breadcrumb-item active">Welcome to Agroxa Dashboard, {{ Auth::user()->name }}</li>
                         </ol>
                     </div>
                 </div>
@@ -24,13 +24,13 @@
                         <div class="card bg-primary mini-stat position-relative">
                             <div class="card-body">
                                 <div class="mini-stat-desc">
-                                    <h6 class="text-uppercase verti-label text-white-50">Orders</h6>
+                                    <h6 class="text-uppercase verti-label text-white-50">Pengguna</h6>
                                     <div class="text-white">
-                                        <h6 class="text-uppercase mt-0 text-white-50">Orders</h6>
-                                        <h3 class="mb-3 mt-0">1,587</h3>
+                                        <h6 class="text-uppercase mt-0 text-white-50">Pengguna</h6>
+                                        <h3 class="mb-3 mt-0">{{ $users }}</h3>
                                     </div>
                                     <div class="mini-stat-icon">
-                                        <i class="mdi mdi-cube-outline display-2"></i>
+                                        <i class="ion-android-friends display-1"></i>
                                     </div>
                                 </div>
                             </div>
@@ -40,13 +40,13 @@
                         <div class="card bg-primary mini-stat position-relative">
                             <div class="card-body">
                                 <div class="mini-stat-desc">
-                                    <h6 class="text-uppercase verti-label text-white-50">Revenue</h6>
+                                    <h6 class="text-uppercase verti-label text-white-50">Produk</h6>
                                     <div class="text-white">
-                                        <h6 class="text-uppercase mt-0 text-white-50">Revenue</h6>
-                                        <h3 class="mb-3 mt-0">$46,785</h3>
+                                        <h6 class="text-uppercase mt-0 text-white-50">Produk</h6>
+                                        <h3 class="mb-3 mt-0">{{ $produks }}</h3>
                                     </div>
                                     <div class="mini-stat-icon">
-                                        <i class="mdi mdi-buffer display-2"></i>
+                                        <i class="ti-harddrives display-1"></i>
                                     </div>
                                 </div>
                             </div>
@@ -56,13 +56,14 @@
                         <div class="card bg-primary mini-stat position-relative">
                             <div class="card-body">
                                 <div class="mini-stat-desc">
-                                    <h6 class="text-uppercase verti-label text-white-50">Av. Price</h6>
+                                    <h6 class="text-uppercase verti-label text-white-50 m-r-15">Produk</h6>
+                                    <h6 class="text-uppercase verti-label text-white-50">Kosong</h6>
                                     <div class="text-white">
-                                        <h6 class="text-uppercase mt-0 text-white-50">Average Price</h6>
-                                        <h3 class="mb-3 mt-0">15.9</h3>
+                                        <h6 class="text-uppercase mt-0 text-white-50">Produk Kosong</h6>
+                                        <h3 class="mb-3 mt-0">{{ $produk_kosong }}</h3>
                                     </div>
                                     <div class="mini-stat-icon">
-                                        <i class="mdi mdi-tag-text-outline display-2"></i>
+                                        <i class="ti-package display-1"></i>
                                     </div>
                                 </div>
                             </div>
@@ -72,13 +73,13 @@
                         <div class="card bg-primary mini-stat position-relative">
                             <div class="card-body">
                                 <div class="mini-stat-desc">
-                                    <h6 class="text-uppercase verti-label text-white-50">Pr. Sold</h6>
+                                    <h6 class="text-uppercase verti-label text-white-50">Transaksi</h6>
                                     <div class="text-white">
-                                        <h6 class="text-uppercase mt-0 text-white-50">Product Sold</h6>
-                                        <h3 class="mb-3 mt-0">1890</h3>
+                                        <h6 class="text-uppercase mt-0 text-white-50">Transaksi</h6>
+                                        <h3 class="mb-3 mt-0">{{ $checkouts }}</h3>
                                     </div>
                                     <div class="mini-stat-icon">
-                                        <i class="mdi mdi-briefcase-check display-2"></i>
+                                        <i class="ti-shopping-cart display-1"></i>
                                     </div>
                                 </div>
                             </div>

@@ -34,7 +34,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo">
+                <a href="{{ route('home') }}" class="logo">
                     <span>
                         <img src="{{ asset('admin/assets/images/logo.png')}}" alt="" height="24">
                     </span>
@@ -64,7 +64,7 @@
                                 @else
                                 <img alt="image" src="{{ asset('admin/assets/images/users/user-5.png') }}" class="nav-img rounded-circle mr-1">
                                 @endif
-                                <span class="ml-2 text-white">Selamat Datang, {{ Auth::user()->name }}</span>
+                                <span class="ml-2 text-white">HI, {{ Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
@@ -231,6 +231,29 @@
         </div>
         <!-- Left Sidebar End -->
         @yield('content')
+    </div>
+    <div class="modal fade" id="modalDestroy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog confirm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah anda yakin ingin menghapus data?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form id="deleteConf" method="POST" action="">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger">Hapus</a>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- END wrapper -->
 
@@ -413,6 +436,26 @@
             } else {
                 $('#trDetailProduk').slideUp("slow")
             }
+        })
+    </script>
+    <script>
+        $('#modalDestroy').on('show.bs.modal', function(e) {
+            $(this).find('#deleteConf').attr('action', $(e.relatedTarget).data('uri'));
+        });
+    </script>
+    <script>
+        $('#printInvoice').click(function() {
+            window.print()
+        })
+
+        $('#danaContent').hide()
+        $('#radioCash').click(function() {
+            $('#danaContent').hide()
+            $('#cashContent').slideDown("slow")
+        })
+        $('#radioDana').click(function() {
+            $('#cashContent').hide()
+            $('#danaContent').slideDown("slow")
         })
     </script>
 

@@ -63,7 +63,7 @@
         </div>
 
         <div class="m-t-40 text-center">
-            <p class="text-muted">© 2018 Agroxa. Crafted with <i class="mdi mdi-heart text-primary"></i> by Themesbrand</p>
+            <p class="text-muted">© 2020 Agroxa.</p>
         </div>
 
     </div>
