@@ -20,8 +20,9 @@
             <!-- end row -->
 
             <div class="page-content-wrapper">
+                @include("layouts.toastSession")
                 <div class="row">
-                    <div class="col-12 col-md4">
+                    <div class="col-lg-4">
                         <div class="card m-b-20">
                             <div class="card-body">
 
@@ -48,7 +49,8 @@
                                             <span><i>Sudah termasuk PPN & Diskon toko</i></span>
                                         </div>
                                     </div>
-                                    <div class="card-footer d-flex justify-content-between">
+                                    <hr>
+                                    <div class="d-flex justify-content-between">
                                         <div class="row">
                                             <div class="col-11">
                                                 <input type="number" class="form-control" value="1" name="jumlah" required>
@@ -63,13 +65,13 @@
 
                     </div> <!-- end col -->
 
-                    <div class="col-12 col-md-8">
-                        <div class="card m-b-20">
+                    <div class="col-lg-8">
+                        <div class="card m-b-15">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <h4 class="mt-0 header-title">Keranjang</h4>
                                     @if($totalCarts != 0)
-                                    <a class="btn btn-warning btn-sm" href="{{ route('transaksiClean') }}">Bersihkan Keranjang</a>
+                                    <a class="btn btn-primary waves-effect waves-light btn-sm mb-3" href="{{ route('transaksiClean') }}">Bersihkan Keranjang</a>
                                     @endif
                                 </div>
                                 <div class="table-responsive">
@@ -98,7 +100,7 @@
                                                 <td>{{ $res->jumlah }}</td>
                                                 <td>{{ $res->produk->currency->currency }} {{ number_format($res->sub_total,2,',','.') }}</td>
                                                 <td>
-                                                    <a href="#" data-uri="{{ route('transaksi.destroy', $res->id) }}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="fas fa-trash-alt"></i></a>
+                                                    <a href="#" data-uri="{{ route('transaksi.destroy', $res->id) }}" class="btn btn-primary waves-effect waves-light btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="dripicons-cross"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -111,9 +113,9 @@
                                 </div>
                                 <hr>
                             </div>
-                            <div class="card-footer text-right">
+                            <div class="text-right mb-4 mr-4">
                                 @if($totalCarts != 0)
-                                <a href="{{ route('checkout.index') }}" class="btn btn-flat btn-icon icon-left btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a>
+                                <a href="{{ route('checkout.index') }}" class="btn btn-success waves-effect waves-light"><i class="ti-shopping-cart"></i> Checkout</a>
                                 @endif
                             </div>
                         </div>

@@ -10,6 +10,7 @@
                 <div class="col-sm-12">
                     <div class="page-title-box">
                         <h4 class="page-title">Laporan Produk Masuk</h4>
+                        @include("layouts.toastSession")    
                         <ol class="breadcrumb ">
                             <li class="breadcrumb-item"><a href="#">Inventory</a></li>
                             <li class="breadcrumb-item active"><a>Laporan Produk Masuk</a></li>
@@ -25,10 +26,7 @@
                         <div class="card m-b-20">
                             <div class="card-body">
 
-                                <h4 class="mt-0 header-title">Produk Masuk</h4>
-                                <a href="">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light btn-sm m-b-10">Print Produk</button>
-                                </a>
+                                <h4 class="mt-0 mb-4 header-title">Produk Masuk</h4>
                                 <table id="datatable-buttons" class="table table-striped dt-uponsive nowrap justify-content-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
@@ -47,7 +45,7 @@
                                             <td>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <img src="data:image/png;base64,{{DNS1D::getBarcodePNG(
-                                                    $res->barcode, 'C39')}}" height="20" width="100">
+                                                    $res->barcode, 'C39')}}" height="30" width="200">
                                                     <span class="text-barcode">{{ $res->barcode }}</span>
                                                 </div>
                                             </td>

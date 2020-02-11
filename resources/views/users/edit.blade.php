@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.app') @section('content')
 <!-- Start content -->
 <div class="content-page">
     <!-- Start content -->
@@ -12,7 +10,7 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Edit Pengguna</h4>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Manajemen Pengguna</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Pengguna</a></li>
                             <li class="breadcrumb-item active">Edit Pengguna</li>
                         </ol>
@@ -25,10 +23,9 @@
                 <div class="card m-b-20">
                     <div class="card-body">
 
-                        <h4 class="mt-0 header-title">Pengguna</h4>
+                        <h4 class="mt-0 header-title">Form Edit Pengguna</h4>
                         <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
-                            @csrf
-                            {{ method_field('PUT') }}
+                            @csrf {{ method_field('PUT') }}
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
                                 <input type="text" class="form-control" name="name" required="" value="{{ $user->name }}">
@@ -48,26 +45,24 @@
                             <div class="form-group">
                                 <label>Level</label>
                                 <select class="form-control" name="level" required>
-                                    @php
-                                    $l = ["Admin Utama", "Admin Gudang", "Kasir"]
-                                    @endphp
-                                    @foreach($l as $ls)
-                                    @if($ls == $user->level)
+                                    @php $l = ["Admin Utama", "Admin Gudang", "Kasir"] @endphp @foreach($l as $ls) @if($ls == $user->level)
                                     <option value="{{ $ls }}" selected>{{ $ls }}</option>
                                     @else
                                     <option value="{{ $ls }}">{{ $ls }}</option>
-                                    @endif
-                                    @endforeach
+                                    @endif @endforeach
                                 </select>
                             </div>
-
+                            <div class="form-group">
+                                <label>Foto Pengguna</label>
+                                <input type="file" name="foto" lass="filestyle" data-buttonname="btn-secondary" value="{{ $user->foto }}">
+                            </div>
                             <div class="form-group ">
-                                <div>
+                                <div class="text-right">
+                                    <a href="{{ url()->previous() }}" class="btn btn-secondary waves-effect m-l-5 ">
+                                        Cancel
+                                    </a>
                                     <button type="submit " class="btn btn-primary waves-effect waves-light ">
                                         Submit
-                                    </button>
-                                    <button type="reset " class="btn btn-secondary waves-effect m-l-5 ">
-                                        Cancel
                                     </button>
                                 </div>
                             </div>

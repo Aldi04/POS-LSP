@@ -12,8 +12,8 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Tambah Produk</h4>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Inventory</a></li>
-                            <li class="breadcrumb-item"><a href="#">Produk</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('produk.index') }}">Produk</a></li>
                             <li class="breadcrumb-item active">Tambah Produk</li>
                         </ol>
                     </div>
@@ -25,12 +25,12 @@
                 <div class="card m-b-20">
                     <div class="card-body">
 
-                        <h4 class="mt-0 header-title">Produk</h4>
+                        <h4 class="mt-0 mb-4 header-title">Form Tambah Produk</h4>
                         <form method="POST" action="{{ route('produk.store') }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Produk</label>
-                                <input type="text" class="form-control" name="nama" required="">
+                                <input type="text" class="form-control" name="nama" required>
                             </div>
                             <div class="form-group">
                                 <label>Kategori</label>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Stok</label>
-                                <input type="number" class="form-control" name="stok" required="">
+                                <input type="number" class="form-control" name="stok" required>
                             </div>
                             <div class="form-group">
                                 <label>Currency</label>
@@ -93,26 +93,26 @@
                             </div>
                             <div class="form-group">
                                 <label>Diskon Produk</label>
-                                <input type="number" class="form-control" name="diskon">
+                                <input type="number" class="form-control" name="diskon" required>
                                 <div class="invalid-feedback">
                                     Form Diskon Produk harus diisi!
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <textarea class="summernote-simple" name="keterangan" required=""></textarea>
+                                <textarea id="textarea" class="form-control" maxlength="225" rows="3" name="keterangan" required></textarea>
                                 <div class="invalid-feedback">
                                     Form Keterangan harus diisi!
                                 </div>
                             </div>
 
                             <div class="form-group ">
-                                <div>
-                                    <button type="submit " class="btn btn-primary waves-effect waves-light ">
-                                        Submit
-                                    </button>
-                                    <button type="reset " class="btn btn-secondary waves-effect m-l-5 ">
+                                <div class="text-right">
+                                    <a href="{{ url()->previous() }}" class="btn btn-secondary waves-effect m-l-5 ">
                                         Cancel
+                                    </a>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light ">
+                                        Submit
                                     </button>
                                 </div>
                             </div>

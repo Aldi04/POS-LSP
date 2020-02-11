@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Produk</h4>
                         <ol class="breadcrumb ">
-                            <li class="breadcrumb-item"><a href="#">Inventory</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item active"><a>Produk</a></li>
                         </ol>
                     </div>
@@ -20,15 +20,22 @@
             <!-- end row -->
 
             <div class="page-content-wrapper">
+                @include("layouts.toastSession")
                 <div class="row">
                     <div class="col-12">
                         <div class="card m-b-20">
                             <div class="card-body">
 
-                                <h4 class="mt-0 header-title">Produk</h4>
-                                <a href="{{ route('produk.create') }}">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light btn-sm m-b-10">Tambah Produk</button>
-                                </a>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <h4 class="mt-0 header-title">Table Produk</h4>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a href="{{ route('produk.create') }}">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light btn-sm m-b-10">Tambah Produk</button>
+                                        </a>
+                                    </div>
+                                </div>
                                 <table id="datatable-buttons" class="table table-striped dt-uponsive nowrap justify-content-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
@@ -49,7 +56,7 @@
                                             <td>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <img src="data:image/png;base64,{{DNS1D::getBarcodePNG(
-                                                    $res->barcode, 'C39')}}" height="20" width="100">
+                                                    $res->barcode, 'C39')}}" height="30" width="180">
                                                     <span class="text-barcode">{{ $res->barcode }}</span>
                                                 </div>
                                             </td>
@@ -57,9 +64,10 @@
                                             <td>{{ $res->kategori->kategori }}</td>
                                             <td>{{ $res->stok }}</td>
                                             <td>{{ $res->currency->currency }} {{ number_format($res->harga_jual,2,',','.') }}</td>
+                                            
                                             <td>
-                                                <a href="{{ route('produk.edit', $res->id) }}" class="btn btn-outline-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                <a href="#" data-uri="{{ route('produk.destroy', $res->id) }}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="{{ route('produk.edit', $res->id) }}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="typcn typcn-edit"></i> Edit</a>
+                                                <a href="#" data-uri="{{ route('produk.destroy', $res->id) }}" class="btn btn-primary waves-effect waves-light btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="typcn typcn-trash"></i> Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

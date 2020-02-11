@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Pengguna</h4>
                         <ol class="breadcrumb ">
-                            <li class="breadcrumb-item"><a href="#">Manajemen Toko</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashborad</a></li>
                             <li class="breadcrumb-item active"><a>Pengguna</a></li>
                         </ol>
                     </div>
@@ -20,17 +20,22 @@
             <!-- end row -->
 
             <div class="page-content-wrapper">
+                @include("layouts.toastSession")
                 <div class="row">
                     <div class="col-12">
                         <div class="card m-b-20">
                             <div class="card-body">
 
-                                <h4 class="mt-0 header-title">Pengguna</h4>
-                                <a href="{{route('users.create')}}">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light btn-sm m-b-10">Tambah User</button>
-                                </a>
-                                &nbsp;
-                                <a target="blank" href="{{ route('printUsers') }}" class="btn btn-primary waves-effect waves-light btn-sm m-b-10"><i class="fas fa-print"></i> Cetak</a>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <h4 class="mt-0 header-title">Table Pengguna</h4>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a href="{{route('users.create')}}">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light btn-sm m-b-10">Tambah Pengguna</button>
+                                        </a>
+                                    </div>
+                                </div>
                                 <table id="datatable-buttons" class="table table-striped dt-uponsive nowrap text-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
@@ -55,13 +60,13 @@
                                             <td>{{ $u->name }}</td>
                                             <td>{{ $u->email }}</td>
                                             <td>
-                                                <span class="badge badge-pill badge-info">
+                                                <span class="badge badge-info badge-pill font-12">
                                                     {{ $u->level}}
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="{{ route('users.edit', $u->id) }}" class="btn btn-outline-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                <a href="#" data-uri="{{ route('users.destroy', $u->id) }}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="{{ route('users.edit', $u->id) }}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="typcn typcn-edit"></i> Edit</a>
+                                                <a href="#" data-uri="{{ route('users.destroy', $u->id) }}" class="btn btn-primary waves-effect waves-light btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="typcn typcn-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                         @endforeach

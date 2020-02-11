@@ -40,6 +40,7 @@ Route::group(["middleware" => ["role.adminGudang", "auth"]], function () {
 Route::group(["middleware" => ["role.kasir", "auth"]], function () {
     Route::resource('transaksi', 'CartController');
     Route::get('transaksiClean', 'CartController@transaksiClean')->name('transaksiClean');
+    Route::resource("produk", "ProdukController");
     Route::resource('checkout', 'CheckoutController');
     Route::resource('invoice', 'InvoiceController');
 });

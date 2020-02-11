@@ -10,6 +10,14 @@
     <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico')}}">
 
+    <!-- Plugins css -->
+    <link href="{{ asset('admin/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('admin/assets/plugins/bootstrap-md-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('admin/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
+
     <!-- DataTables -->
     <link href="{{ asset('admin/assets/plugins/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/plugins/datatables/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
@@ -265,6 +273,8 @@
     <script src="{{ asset('admin/assets/js/waves.min.js')}}"></script>
 
     <script src="{{ asset('admin/assets/plugins/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/plugins/bootstrap-md-datetimepicker/js/moment-with-locales.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/plugins/bootstrap-md-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
 
     <!-- Peity JS -->
     <script src="{{ asset('admin/assets/plugins/peity/jquery.peity.min.js')}}"></script>
@@ -299,6 +309,17 @@
 
     <!-- App js -->
     <script src="{{ asset('admin/assets/js/app.js')}}"></script>
+
+    <!-- Plugins js -->
+    <script src="{{ asset('admin/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+
+    <script src="{{ asset('admin/assets/plugins/select2/js/select2.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js')}}"></script>
+    <script src="{{ asset('admin/assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js')}}"></script>
+
+    <!-- Plugins Init js -->
+    <script src="{{ asset('admin/assets/pages/form-advanced.js')}}"></script>
 
     <script>
         $(document).ready(function() {
@@ -456,6 +477,11 @@
         $('#radioDana').click(function() {
             $('#cashContent').hide()
             $('#danaContent').slideDown("slow")
+        })
+    </script>
+    <script>
+        $('#printInvoice').click(function(){
+            window.print()
         })
     </script>
 

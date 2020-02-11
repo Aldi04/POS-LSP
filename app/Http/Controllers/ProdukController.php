@@ -50,7 +50,7 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $d = new Produk;
-        $barcode = rand(1111111111111, 9999999999999);
+        $barcode = rand(1111111111111111, 9999999999999999);
         $d->barcode = $barcode;
         $d->kategori_id = $request->kategori_id;
         $d->currency_id = $request->currency_id;

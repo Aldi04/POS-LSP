@@ -12,7 +12,7 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Edit Produk</h4>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Manajemen Produk</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('produk.index') }}">Produk</a></li>
                             <li class="breadcrumb-item active">Edit Produk</li>
                         </ol>
@@ -112,15 +112,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <textarea class="summernote-simple" name="keterangan" required="">{!! $produk->keterangan !!}</textarea>
+                                <textarea id="textarea" class="form-control" maxlength="225" rows="3" name="keterangan" required>{!! $produk->keterangan !!}</textarea>
                             </div>
                             <div class="form-group ">
-                                <div>
+                                <div class="text-right">
+                                    <a href="{{ url()->previous() }}" class="btn btn-secondary waves-effect m-l-5 ">
+                                        Cancel
+                                    </a>
                                     <button type="submit " class="btn btn-primary waves-effect waves-light ">
                                         Submit
-                                    </button>
-                                    <button type="reset " class="btn btn-secondary waves-effect m-l-5 ">
-                                        Cancel
                                     </button>
                                 </div>
                             </div>

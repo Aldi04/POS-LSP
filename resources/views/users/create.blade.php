@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 
 @section('content')
 <!-- Start content -->
@@ -12,7 +12,7 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Tambah User</h4>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Manajemen Toko</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Pengguna</a></li>
                             <li class="breadcrumb-item active">Tambah Pengguna</li>
                         </ol>
@@ -25,7 +25,7 @@
                 <div class="card m-b-20">
                     <div class="card-body">
 
-                        <h4 class="mt-0 header-title">Pengguna</h4>
+                        <h4 class="mt-0 header-title">Form Tambah Pengguna</h4>
                         <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                             @csrf
                             <div class="form-group">
@@ -47,31 +47,23 @@
                             <div class="form-group">
                                 <label>Level</label>
                                 <select class="form-control selectric" name="level" required>
-                                    @php
-                                    $l = ["Admin Utama", "Admin Gudang", "Kasir"]
-                                    @endphp
-                                    @foreach($l as $ls)
+                                    @php $l = ["Admin Utama", "Admin Gudang", "Kasir"] @endphp @foreach($l as $ls)
                                     <option value="{{ $ls }}">{{ $ls }}</option>
                                     @endforeach
                                 </select>
-                                <div class="invalid-feedback">
-                                    Form Level harus diisi!
-                                </div>
                             </div>
-                            <label>Level</label>
-                            <div class="dropzone">
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple="multiple">
-                                </div>
+                            <div class="form-group">
+                                <label>Foto Pengguna</label>
+                                <input type="file" name="foto" lass="filestyle" data-buttonname="btn-secondary">
                             </div>
 
                             <div class="form-group ">
-                                <div>
+                                <div class="text-right">
+                                    <a href="{{ url()->previous() }}" class="btn btn-secondary waves-effect m-l-5 ">
+                                        Cancel
+                                    </a>
                                     <button type="submit " class="btn btn-primary waves-effect waves-light ">
                                         Submit
-                                    </button>
-                                    <button type="reset " class="btn btn-secondary waves-effect m-l-5 ">
-                                        Cancel
                                     </button>
                                 </div>
                             </div>

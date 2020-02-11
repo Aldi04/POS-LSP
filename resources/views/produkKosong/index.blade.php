@@ -10,6 +10,7 @@
                 <div class="col-sm-12">
                     <div class="page-title-box">
                         <h4 class="page-title">Produk Kosong</h4>
+                        @include("layouts.toastSession")
                         <ol class="breadcrumb ">
                             <li class="breadcrumb-item"><a href="#">Inventory</a></li>
                             <li class="breadcrumb-item active"><a>Produk Kosong</a></li>
@@ -25,10 +26,7 @@
                         <div class="card m-b-20">
                             <div class="card-body">
 
-                                <h4 class="mt-0 header-title">Produk Kosong</h4>
-                                <a href="">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light btn-sm m-b-10">Print Produk Kosong</button>
-                                </a>
+                                <h4 class="mt-0 mb-4 header-title">Produk Kosong</h4>
                                 <table id="datatable-buttons" class="table table-striped dt-uponsive nowrap justify-content-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
@@ -48,7 +46,7 @@
                                             <td>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <img src="data:image/png;base64,{{DNS1D::getBarcodePNG(
-                                                    $res->barcode, 'C39')}}" height="20" width="100">
+                                                    $res->barcode, 'C39')}}" height="30" width="120">
                                                     <span class="text-barcode">{{ $res->barcode }}</span>
                                                 </div>
                                             </td>
@@ -56,7 +54,7 @@
                                             <td>{{ $res->kategori->kategori }}</td>
                                             <td>{{ $res->stok }}</td>
                                             <td>
-                                                <button __nama="{{ $res->nama }}" __action="{{ route('produkKosong.update', $res->id) }}" class="edit btn btn-success btn-sm">Tambah Stok</button>
+                                                <button __nama="{{ $res->nama }}" __action="{{ route('produkKosong.update', $res->id) }}" class="edit btn btn-success btn-sm"><i class="typcn typcn-plus"></i> Tambah Stok</button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -89,8 +87,9 @@
     <div class="modal-dialog confirm" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Stok</h5>
-                &nbsp;&nbsp;<span id="namaProduk" class="badge badge-secondary"></span>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Stok
+                    &nbsp;<span id="namaProduk" class="badge badge-secondary"></span>
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

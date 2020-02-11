@@ -14,8 +14,8 @@ class User extends Seeder
         \App\User::truncate();
 
         $d = new \App\User;
-        $d->name = "Admin";
-        $d->email = "admin@gmail.com";
+        $d->name = "Admin Utama";
+        $d->email = "adminutama@gmail.com";
         $d->password = \Hash::make("admin");
         $d->level = "Admin Utama";
 

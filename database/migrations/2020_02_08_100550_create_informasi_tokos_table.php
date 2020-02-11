@@ -18,9 +18,9 @@ class CreateInformasiTokosTable extends Migration
             $table->string('nama');
             $table->text('alamat')->nullable();
             $table->text('keterangan')->nullable();
-            $table->text('telepon');
-            $table->text('foto')->nullable();
-            $table->text('kode_pos')->nullable();
+            $table->string('telepon');
+            $table->string('foto')->nullable();
+            $table->string('kode_pos')->nullable();
             $table->timestamps();
         });
     }

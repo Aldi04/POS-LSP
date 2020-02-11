@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <h4 class="page-title">Kategori Produk</h4>
                         <ol class="breadcrumb ">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item active"><a>Kategori Produk</a></li>
                         </ol>
                     </div>
@@ -20,13 +20,19 @@
             <!-- end row -->
 
             <div class="page-content-wrapper">
+                @include("layouts.toastSession")
                 <div class="row">
                     <div class="col-12">
                         <div class="card m-b-20">
                             <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Kategori Produk</h4>
-                                <a href="#" class="btn btn-primary waves-effect waves-light btn btn-sm m-b-15" data-toggle="modal" data-target="#modalCreate">Tambah Kategori</a>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <h4 class="mt-0 header-title">Kategori Produk</h4>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a href="#" class="btn btn-primary waves-effect waves-light btn btn-sm m-b-15" data-toggle="modal" data-target="#modalCreate">Tambah Kategori</a>
+                                    </div>
+                                </div>
                                 <table id="datatable" class="table table-striped dt-responsive nowrap text-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
@@ -47,13 +53,13 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $res->kategori }}</td>
                                             <td>
-                                                <div class="badge badge-pill badge-success">
+                                                <div class="badge badge-pill badge-success font-12">
                                                     {{ tgl_indo($t) }}
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="#" __kategori="{{ $res->kategori }}" __action="{{ route('kategoriProduk.update', $res->id) }}" class="btn btn-outline-warning btn-sm edit"><i class="fas fa-edit"></i></a>
-                                                <a href="#" data-uri="{{ route('kategoriProduk.destroy', $res->id) }}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="#" __kategori="{{ $res->kategori }}"  __action="{{ route('kategoriProduk.update', $res->id) }}" class="btn btn-warning waves-effect waves-light btn-sm edit"><i class="typcn typcn-edit"></i> Edit</a>
+                                                <a href="#" data-uri="{{ route('kategoriProduk.destroy', $res->id) }}" class="btn btn-primary waves-effect waves-light btn-sm" data-toggle="modal" data-target="#modalDestroy"><i class="typcn typcn-trash"></i> Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
